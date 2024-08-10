@@ -4,6 +4,9 @@ import SkiaKit
 import Drawing
 import Dispatch
 import Events
+import CStbImage
+import CSkiaSharp
+
 
 open class Root: Parent {
   open var bounds: DRect = DRect(min: DPoint2(0, 0), size: DSize2(0, 0)) {

@@ -7,11 +7,11 @@ extension DeveloperTools {
     var store: DeveloperTools.Store
 
     @Compose override public var content: ComposedContent {
-      Container().withContent { [unowned self] in
+      Container().withContent {
 
         Dynamic(store.$state.inspectedWidget.publisher) {
 
-          if let inspectedWidget = store.state.inspectedWidget {
+            if let inspectedWidget = self.store.state.inspectedWidget {
 
             Container().with(styleProperties: {
               (\.$grow, 1.0)
@@ -25,8 +25,8 @@ extension DeveloperTools {
                 Text(String(describing: inspectedWidget.treePath))
               }
 
-              buildStyleProperties(for: inspectedWidget)
-              buildMatchedStyles(for: inspectedWidget)
+                self.buildStyleProperties(for: inspectedWidget)
+                self.buildMatchedStyles(for: inspectedWidget)
             }
           } else {
             Space(.zero)

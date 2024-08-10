@@ -53,8 +53,8 @@ public class TodoAppView: ComposedWidget {
   }
 
   private func buildMenu() -> Widget {
-    Container().with(classes: ["menu"]).withContent { [unowned self] in
-      buildSearch()
+    Container().with(classes: ["menu"]).withContent {
+        self.buildSearch()
 
       Container().with(classes: ["padded-container"]).withContent {
         Button().with(classes: ["button"]).withContent {
@@ -66,7 +66,7 @@ public class TodoAppView: ComposedWidget {
 
       List(items: store.$state.lists.immutable).with(classes: ["menu-item-list"]).withContent {
         $0.itemSlot {
-          buildMenuListItem(for: $0)
+            self.buildMenuListItem(for: $0)
         }
       }
     }

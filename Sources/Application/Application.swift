@@ -6,7 +6,7 @@ import Drawing
 import GfxMath
 import GL
 import SkiaKit
-import CSkia
+import CSkiaSharp
 
 open class Application {
   private var windowBunches: [WindowBunch] = []
@@ -85,14 +85,14 @@ open class Application {
   }
 
   public func start() throws {
-    DispatchQueue.main.async { [unowned self] in
-      mainLoop()
+    DispatchQueue.main.async { [weak self] in
+        self?.mainLoop()
     }
-    #if os(macOS)
-    RunLoop.main.run()
-    #else
-    dispatchMain()
-    #endif
+#if os(macOS)
+        RunLoop.current.run()
+#else
+        dispatchMain()
+#endif
   }
 
   private func mainLoop() {

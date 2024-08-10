@@ -5,9 +5,9 @@ public class MainView: ComposedWidget {
   private var counter = 0
 
   @Compose override public var content: ComposedContent {
-    Container().with(classes: ["container"]).withContent { [unowned self] in
+    Container().with(classes: ["container"]).withContent {
       Button().onClick {
-        counter += 1
+          self.counter += 1
       }.withContent {
         Text(ImmutableBinding($counter.immutable, get: { "counter: \($0)" }))
       }

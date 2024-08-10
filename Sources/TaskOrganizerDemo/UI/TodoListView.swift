@@ -82,8 +82,8 @@ public class TodoListView: ComposedWidget {
       }
 
       List(items: ImmutableBinding($list.immutable, get: { $0?.items ?? [] })).with(classes: ["todo-item-list"]).withContent {
-        $0.itemSlot { [unowned self] in
-          build(todo: $0)
+        $0.itemSlot {
+            self.build(todo: $0)
         }
       }
     }

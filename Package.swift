@@ -24,10 +24,10 @@ let package = Package(
     dependencies: [
         .package(name: "GL", url: "https://github.com/UnGast/swift-opengl", .branch("master")),
         .package(name: "Swim", url: "https://github.com/UnGast/swim.git", .branch("master")),
-        .package(name: "GfxMath", url: "https://github.com/UnGast/swift-gfx-math.git", .branch("master")),
+        .package(name: "GfxMath", url: "https://github.com/skeyboy/swift-gfx-math.git", .branch("master")),
         .package(url: "https://github.com/OpenCombine/OpenCombine.git", .branch("master")),
         .package(url: "https://github.com/mtynior/ColorizeSwift.git", from: "1.6.0"),
-        .package(url: "https://github.com/UnGast/SkiaKit", .branch("main")),
+        .package(name: "SkiaKit", url: "https://github.com/skeyboy/SkiaKit.git", .branch("main")),
         .package(name: "FirebladePAL", url: "https://github.com/fireblade-engine/pal.git", .branch("main"))
     ],
 
@@ -43,7 +43,7 @@ let package = Package(
                 "FirebladePAL",
                 "Drawing",
                 "GfxMath",
-                "GL"]),
+                "GL", "SkiaKit"]),
 
         .target(
             name: "Events",

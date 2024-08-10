@@ -5,16 +5,16 @@ public class SearchResultsView: ComposedWidget {
   private var store: TodoStore
 
   @Compose override public var content: ComposedContent {
-    Container().with(classes: ["lists-container"]).withContent { [unowned self] in
+    Container().with(classes: ["lists-container"]).withContent {
 
       Dynamic(store.$state.searchResult.publisher) {
 
-        (store.state.searchResult?.filteredLists ?? []).map { list in
+          (self.store.state.searchResult?.filteredLists ?? []).map { list in
           Container().with(classes: ["list"]).withContent {
-            buildListHeader(list)
+              self.buildListHeader(list)
 
             list.items.map {
-              buildSearchResult($0)
+                self.buildSearchResult($0)
             }
           }
         }

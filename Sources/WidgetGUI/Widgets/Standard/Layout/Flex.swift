@@ -178,11 +178,11 @@ extension Flex {
   @resultBuilder
   public struct ItemBuilder {
     public static func buildExpression(_ widget: Widget) -> [Flex.Item] {
-      [Flex.Item { widget }]
+        [Flex.Item { return widget }]
     }
 
     public static func buildExpression(_ widgets: [Widget]) -> [Flex.Item] {
-      widgets.map { widget in Flex.Item { widget } }
+        widgets.map { widget in Flex.Item { return widget } }
     }
 
     public static func buildExpression(_ item: Flex.Item) -> [Flex.Item] {

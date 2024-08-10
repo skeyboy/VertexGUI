@@ -16,7 +16,7 @@ extension SlotAcceptingWidgetProtocol {
 
     var defaultDefinition: SlotContentDefinition<Void>? = nil
     if let defaultManager = defaultNoDataSlotContentManager {
-      defaultDefinition = SlotContentDefinition(slot: defaultManager.slot as! Slot<Void>) { [unowned content] in
+      defaultDefinition = SlotContentDefinition(slot: defaultManager.slot) {
         content.directContent
       }
 
